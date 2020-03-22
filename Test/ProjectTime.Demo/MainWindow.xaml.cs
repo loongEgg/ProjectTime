@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ProjectTime.Demo
 {
@@ -33,7 +22,8 @@ namespace ProjectTime.Demo
         {
             if (e.Source is Button btn)
             {
-                string cmd = btn.Content.ToString().ToLower();
+                //string cmd = btn.Content.ToString().ToLower();
+                string cmd = btn.Tag.ToString().ToLower();
                 switch (cmd)
                 {
                     case "minimize": this.WindowState = WindowState.Minimized; break;
@@ -43,7 +33,6 @@ namespace ProjectTime.Demo
                         Debugger.Break();
                         break;
                 }
-                
             }
         }
     }

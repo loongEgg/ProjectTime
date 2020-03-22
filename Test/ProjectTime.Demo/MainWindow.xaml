@@ -6,25 +6,85 @@
     xmlns:local="clr-namespace:ProjectTime.Demo"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
-    Width="800"
+    Width="650"
     Height="450"
+    BorderThickness="4"
     Style="{StaticResource WindowStyle.Base}"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+    <Window.Effect>
+        <DropShadowEffect
+            BlurRadius="10"
+            RenderingBias="Quality"
+            Color="Black" />
+    </Window.Effect>
     <Grid>
         <Border
-            Height="30"
+            Panel.ZIndex="99"
+            Height="36"
             VerticalAlignment="Top"
             Background="#FF1F7BBB"
             MouseLeftButtonDown="Border_MouseLeftButtonDown">
-
+            <Border.Effect>
+                <DropShadowEffect Direction="270"/>
+            </Border.Effect>
             <StackPanel
                 HorizontalAlignment="Right"
                 ButtonBase.Click="StackPanel_Click"
                 Orientation="Horizontal">
-                <Button Width="60" Content="Minimize" />
-                <Button Width="60" Content="Maximize" />
-                <Button Width="60" Content="Close" />
+
+                <!--  最小化  -->
+                <Button
+                    Width="40"
+                    Height="36"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Tag="Minimize">
+                    <Path
+                        Width="30"
+                        Height="30"
+                        Stroke="Lime"
+                        StrokeThickness="3">
+                        <Path.Data>M10, 15 L20, 15</Path.Data>
+                    </Path>
+                </Button>
+
+                <!--  最大化  -->
+                <Button
+                    Width="40"
+                    Height="36"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Tag="Maximize">
+                    <Path
+                        Width="30"
+                        Height="30"
+                        Stroke="Lime"
+                        StrokeThickness="3">
+                        <Path.Data>M10, 10 L20, 10 L20, 20 L10, 20Z</Path.Data>
+                    </Path>
+                </Button>
+
+                <!--  关闭  -->
+                <Button
+                    Width="40"
+                    Height="36"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Tag="Close">
+                    <Path
+                        Width="30"
+                        Height="30"
+                        Stroke="Lime"
+                        StrokeThickness="3">
+                        <Path.Data>
+                            <GeometryGroup>
+                                <LineGeometry StartPoint="10,10" EndPoint="20,20" />
+                                <LineGeometry StartPoint="20,10" EndPoint="10,20" />
+                            </GeometryGroup>
+                        </Path.Data>
+                    </Path>
+                </Button>
             </StackPanel>
 
         </Border>
@@ -33,9 +93,19 @@
             <TextBlock
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                FontSize="52"
-                Foreground="#FF1F7BBB">
-                美化按钮和边框放在下一期
+                xml:space="preserve"
+                FontSize="42"
+                Foreground="#FF1F7BBB"
+                TextAlignment="Left">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="4" />
+                </TextBlock.Effect>
+1.Path
+2.Path.Data 
+3.GeometryGroup
+4.LineGeometry
+5.DropShadowEffect
+              
             </TextBlock>
         </Grid>
     </Grid>
