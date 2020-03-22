@@ -262,3 +262,7 @@ __pycache__/
 /Content.md
 /Note/Content.md
 /Limited/LoongKeys
+/Note.md
+*.md
+/Note/Assets/解决方案结构.png
+/Note/Assets/真实文件夹结构.png
